@@ -4,7 +4,7 @@ from restaurant_task.domain.models.item.item import Item
 from restaurant_task.domain.models.spot.spot_id import SpotId
 from restaurant_task.domain.models.physical_item.physical_item import PhysicalItem
 
-type PoseName = Literal["default", "search", "serve", "grasp"]
+PoseName = Literal["default", "search", "serve", "grasp"]
 
 class IRobotAgent(Protocol):
     async def detect_obstacle(self, max_distance: float) -> bool:...
