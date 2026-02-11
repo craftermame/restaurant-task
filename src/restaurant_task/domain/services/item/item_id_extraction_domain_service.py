@@ -11,9 +11,8 @@ class ItemIdExtractionDomainService:
             for item_id in await self._item_repository.get_all_ids()
         ]
 
-        item_id = ""
         for str_id in str_ids:
             if str_id in sentence:
-                item_id = str_id
+                return ItemId(str_id)
 
-        return ItemId(item_id)
+        raise ValueError("Could not extract any ItemId.")
