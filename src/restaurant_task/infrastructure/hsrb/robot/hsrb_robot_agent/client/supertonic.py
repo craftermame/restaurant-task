@@ -8,6 +8,9 @@ class SupertonicClient(Node):
         super().__init__("supertonic")
         self.action_client = ActionClient(self, TextToSpeech, "/speech_word")
 
+        if not self.action_client.wait_for_server(timeout_sec=3.0):
+            raise RuntimeError("Cannot connect to supertonic server.")
+
     async def execute(self, text: str):
         goal_msg = TextToSpeech.Goal()
         goal_msg.text = text
