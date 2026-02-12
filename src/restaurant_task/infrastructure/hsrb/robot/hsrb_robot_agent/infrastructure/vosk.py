@@ -13,7 +13,7 @@ class VoskClient(Node):
             ActionClient(self, SpeechRecognition, "/speech_recognition")
 
         if not self.action_client.wait_for_server(timeout_sec=3.0):
-            raise RuntimeError("Cannot connect to vosk server.")
+            self.get_logger().error("Cannot connect to vosk server.")
 
     async def execute(self, timeout_sec: int):
         goal_msg = SpeechRecognition.Goal()
