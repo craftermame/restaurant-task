@@ -10,5 +10,3 @@ class HSRBRobotAgent(IRobotAgent):
     async def ask(self, question, duration_sec = 4):
         await self.speak(question)
         return await vosk_client.execute(duration_sec)
-
-hsrb = HSRBRobotAgent()
