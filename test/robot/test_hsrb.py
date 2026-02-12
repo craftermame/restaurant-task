@@ -1,6 +1,8 @@
 from restaurant_task.config import config
 
-from restaurant_task.infrastructure.hsrb.robot.hsrb_robot_agent import hsrb
+from restaurant_task.infrastructure.hsrb.robot.hsrb_robot_agent import HSRBRobotAgent
+
+hsrb = HSRBRobotAgent()
 
 async def test_speak():
     await hsrb.speak("This is the sample sentence.")
