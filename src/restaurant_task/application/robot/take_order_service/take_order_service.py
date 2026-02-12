@@ -36,18 +36,22 @@ class TakeOrderService:
 
         while True:
             try:
-                raw_order = await self._robot.ask(config.message.ORDER_QUESTION)
-                item_id = \
+                raw_order = \
+                    await self._robot.ask(config.message.ORDER_QUESTION, 6)
+                item_ids = \
                     await self._item_id_extraction_service.from_sentence(
                         raw_order
                     )
-
-                response = await self._robot.ask(
-                    f"Is your order {item_id.value}? Yes or No."
-                )
-                low_res = response.lower()
-                if "yes" in low_res and "no" not in low_res:
-                    break
+                for item_id in item_ids:
+                    response = await self._robot.ask(
+                        f"Is your order {item_id.value}? Yes or No."
+                    )
+                    low_res = response.lower()
+                    if "yes" in low_res and "no" not in low_res:
+                        break
+                else:
+                    continue
+                break
             except ValueError:
                 continue
 
