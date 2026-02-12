@@ -43,7 +43,7 @@ class TakeOrderService:
                     )
 
                 response = await self._robot.ask(
-                    f"Is your order {item_id}? Yes or No."
+                    f"Is your order {item_id.value}? Yes or No."
                 )
                 low_res = response.lower()
                 if "yes" in low_res and "no" not in low_res:
