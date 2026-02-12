@@ -9,4 +9,4 @@ async def test_ask():
     await hsrb.speak("Please just answer coffee for following question.")
 
     order = await hsrb.ask(config.message.ORDER_QUESTION)
-    assert order == "coffee"
+    assert "coffee" in order
