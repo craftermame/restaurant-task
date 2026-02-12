@@ -10,4 +10,3 @@ disable=
     W0107,  # unnecessary-pass
     C0301,  # line-too-long
     W2301,  # unnecessary-ellipsis
-
