@@ -18,14 +18,11 @@ class SupertonicClient(Node):
         goal_msg = TextToSpeech.Goal()
         goal_msg.text = text
 
-        # Goal送信
         send_goal_future = self.action_client.send_goal_async(goal_msg)
         rclpy.spin_until_future_complete(self, send_goal_future)
 
-        # ゴールの待機
         goal_handle = send_goal_future.result()
         if not (goal_handle and goal_handle.accepted):
-            self.get_logger().error('Goal was rejected.')
             return None
         get_result_future = goal_handle.get_result_async()
         rclpy.spin_until_future_complete(self, get_result_future)
