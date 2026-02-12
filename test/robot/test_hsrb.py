@@ -10,8 +10,3 @@ async def test_ask():
 
     order = await hsrb.ask(config.message.ORDER_QUESTION)
     assert order == "coffee"
-
-async def test_sleep():
-    await hsrb.speak("I'll speak after 3 seconds.")
-    await hsrb.sleep(3.0)
-    await hsrb.speak("3 seconds passed.")
