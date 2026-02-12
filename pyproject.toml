@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Restaurant Task Robot Project"
 dependencies = [
     "pytest",
+    "pytest-asyncio",
 ]
 
 [tool.setuptools.packages.find]
@@ -16,3 +17,4 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["test"]
+asyncio_mode = "auto"
