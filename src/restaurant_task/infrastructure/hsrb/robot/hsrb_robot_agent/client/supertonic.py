@@ -3,7 +3,10 @@ from rclpy.node import Node
 from rclpy.action import ActionClient
 from sobits_interfaces.action import TextToSpeech
 
+from restaurant_task.infrastructure.hsrb.robot.hsrb_robot_agent import utils
+
 class SupertonicClient(Node):
+    @utils.with_rclpy
     def __init__(self):
         super().__init__("supertonic")
         self.action_client = ActionClient(self, TextToSpeech, "/speech_word")
