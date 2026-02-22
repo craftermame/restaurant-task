@@ -1,0 +1,97 @@
+location_pose:
+  "entrance": 
+    frame_id: "map"
+    translation: 
+      x: -0.0774207
+      y: 0.1082116
+      z: 0.0000000
+    rotation: 
+      x: 0.0000000
+      y: 0.0000000
+      z: 0.0018435
+      w: 0.9999983
+
+  "seat_2": 
+    frame_id: "map"
+    translation: 
+      x: 2.7627320
+      y: 2.8442147
+      z: 0.0000000
+    rotation: 
+      x: 0.0000000
+      y: 0.0000000
+      z: 0.7187360
+      w: 0.6952831
+
+  "kitchen_1": 
+    frame_id: "map"
+    translation: 
+      x: 0.9604564
+      y: 2.6238237
+      z: 0.0000000
+    rotation: 
+      x: 0.0000000
+      y: 0.0000000
+      z: -0.6816292
+      w: 0.7316977
+
+  "seat_3": 
+    frame_id: "map"
+    translation: 
+      x: 4.3959830
+      y: 3.0420327
+      z: 0.0000000
+    rotation: 
+      x: 0.0000000
+      y: 0.0000000
+      z: 0.7308618
+      w: 0.6825255
+
+  "seat_1": 
+    frame_id: "map"
+    translation: 
+      x: 0.9853324
+      y: 2.6152306
+      z: 0.0000000
+    rotation: 
+      x: 0.0000000
+      y: 0.0000000
+      z: 0.7142834
+      w: 0.6998566
+
+  "seat_4": 
+    frame_id: "map"
+    translation: 
+      x: 6.0256467
+      y: 3.0816214
+      z: 0.0000000
+    rotation: 
+      x: 0.0000000
+      y: 0.0000000
+      z: 0.7174110
+      w: 0.6966501
+
+  "kitchen_2": 
+    frame_id: "map"
+    translation: 
+      x: 6.0256820
+      y: 3.0374024
+      z: 0.0000000
+    rotation: 
+      x: 0.0000000
+      y: 0.0000000
+      z: -0.7068246
+      w: 0.7073889
+
+  "exit": 
+    frame_id: "map"
+    translation: 
+      x: 0.3595178
+      y: 0.0818820
+      z: 0.0000000
+    rotation: 
+      x: 0.0000000
+      y: 0.0000000
+      z: -0.9995567
+      w: 0.0297719
+

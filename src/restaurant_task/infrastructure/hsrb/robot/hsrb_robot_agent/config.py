@@ -6,6 +6,7 @@ class MsgConfig:
     GRIPPER: Final = "/gripper_controller/grasp"
     LASER_SCAN: Final = "/scan"
     MOVE_TO_POSE: Final = "/hsrb/move_to_pose"
+    NAVIGATE_TO_POSE: Final = "/navigate_to_pose"
 
 class Config:
     msg = MsgConfig()

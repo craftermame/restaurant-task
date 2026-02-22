@@ -14,8 +14,8 @@ class NavigateToSpotService:
         ) -> None:
         self._robot = robot_agent
 
-    async def execute(self, command: NavigateToSpotCommand) -> None:
+    def execute(self, command: NavigateToSpotCommand) -> None:
         spot_id = SpotId(command.spot_id)
 
-        await self._robot.speak(f"I'll go to {spot_id}.")
-        await self._robot.move_to(spot_id)
+        self._robot.speak(f"I'll go to {spot_id}.")
+        self._robot.move_to(spot_id)

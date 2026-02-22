@@ -14,10 +14,10 @@ class ItemIdExtractionDomainService:
     def __init__(self, item_repository: IItemRepository) -> None:
         self._item_repository = item_repository
 
-    async def from_sentence(self, sentence: str) -> list[ItemId]:
+    def from_sentence(self, sentence: str) -> list[ItemId]:
         str_ids = [
             item_id.value
-            for item_id in await self._item_repository.get_all_ids()
+            for item_id in self._item_repository.get_all_ids()
         ]
 
         ids = []

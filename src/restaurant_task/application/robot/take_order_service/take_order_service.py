@@ -30,20 +30,20 @@ class TakeOrderService:
         self._item_id_extraction_service = \
             ItemIdExtractionDomainService(self._item_repository)
 
-    async def execute(self, command: TakeOrderCommand) -> TakeOrderDTO:
+    def execute(self, command: TakeOrderCommand) -> TakeOrderDTO:
         order_id = OrderId.genereate()
         seat_number = SeatNumber(command.seat_number)
 
         while True:
             try:
                 raw_order = \
-                    await self._robot.ask(config.message.ORDER_QUESTION, 6)
+                    self._robot.ask(config.message.ORDER_QUESTION, 6)
                 item_ids = \
-                    await self._item_id_extraction_service.from_sentence(
+                    self._item_id_extraction_service.from_sentence(
                         raw_order
                     )
                 for item_id in item_ids:
-                    response = await self._robot.ask(
+                    response = self._robot.ask(
                         f"Is your order {item_id.value}? Yes or No."
                     )
                     low_res = response.lower()
@@ -62,6 +62,6 @@ class TakeOrderService:
             seat_number
         )
 
-        await self._order_repository.save(order)
+        self._order_repository.save(order)
 
         return TakeOrderDTO(order_id.value)

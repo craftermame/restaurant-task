@@ -14,7 +14,7 @@ class SupertonicClient(Node):
         if not self.action_client.wait_for_server(timeout_sec=3.0):
             self.get_logger().error("Cannot connect to supertonic server.")
 
-    async def execute(self, text: str):
+    def execute(self, text: str):
         goal_msg = TextToSpeech.Goal()
         goal_msg.text = text
 

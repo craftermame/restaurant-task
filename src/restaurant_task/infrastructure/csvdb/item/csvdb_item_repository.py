@@ -10,7 +10,7 @@ class CSVDBItemRepository(IItemRepository):
     def __init__(self) -> None:
         self._db = CSVDB("items", ["id", "item_id", "category"])
 
-    async def find_by_id(self, item_id: ItemId) -> Item | None:
+    def find_by_id(self, item_id: ItemId) -> Item | None:
         record = self._db.get(item_id.value)
 
         if not record:
@@ -21,5 +21,5 @@ class CSVDBItemRepository(IItemRepository):
 
         return Item.reconstruct(identity, category)
 
-    async def get_all_ids(self) -> list[ItemId]:
+    def get_all_ids(self) -> list[ItemId]:
         return [ItemId(str_id) for str_id in self._db.get_all_ids()]

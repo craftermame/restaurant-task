@@ -11,7 +11,7 @@ class CSVDBOrderRepository(IOrderRepository):
     def __init__(self) -> None:
         self._db = CSVDB("orders", ["id", "order_id", "item_id", "seat_number"])
 
-    async def save(self, order: Order) -> None:
+    def save(self, order: Order) -> None:
         order_id = order.order_id.value
         item_id = order.item_id.value
         seat_number = str(order.seat_number.value)
@@ -22,7 +22,7 @@ class CSVDBOrderRepository(IOrderRepository):
             "seat_number": seat_number
         })
 
-    async def find_by_id(self, order_id: OrderId) -> Order | None:
+    def find_by_id(self, order_id: OrderId) -> Order | None:
         record = self._db.get(order_id.value)
 
         if not record:

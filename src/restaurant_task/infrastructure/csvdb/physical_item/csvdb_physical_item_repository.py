@@ -10,7 +10,7 @@ class CSVDBPhysicalItemRepository(IPhysicalItemRepository):
     def __init__(self) -> None:
         self._db = CSVDB("physical_items", ["id", "item_id", "x", "y", "z"])
 
-    async def save(self, physical_item: PhysicalItem) -> None:
+    def save(self, physical_item: PhysicalItem) -> None:
         item_id = physical_item.item_id.value
         x = physical_item.coordinate.x
         y = physical_item.coordinate.y
@@ -23,7 +23,7 @@ class CSVDBPhysicalItemRepository(IPhysicalItemRepository):
             "z": str(z)
         })
 
-    async def find_by_id(self, item_id: ItemId) -> PhysicalItem | None:
+    def find_by_id(self, item_id: ItemId) -> PhysicalItem | None:
         record = self._db.get(item_id.value)
 
         if not record:

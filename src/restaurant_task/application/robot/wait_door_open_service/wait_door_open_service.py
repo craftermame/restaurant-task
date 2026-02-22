@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 import time
+from dataclasses import dataclass
 
 from restaurant_task.config import config
 
@@ -13,9 +13,13 @@ class WaitDoorOpenService:
     def __init__(self, robot_agent: IRobotAgent) -> None:
         self._robot = robot_agent
 
-    async def execute(self, command: WaitDoorOpenCommand) -> None:
+    def execute(self, command: WaitDoorOpenCommand) -> None:
         max_distance = command.max_distance_meter
-        while await self._robot.detect_obstacle(max_distance):
-            time.sleep(2.0)
 
-        await self._robot.speak(config.message.DOOR_OPENING_DETECTED)
+        obstacle = True
+        while obstacle:
+            time.sleep(2.0)
+            obstacle = self._robot.detect_obstacle(max_distance)
+            self._robot.speak(config.message.WAIT_DOOR_OPEN)
+
+        self._robot.speak(config.message.DOOR_OPENING_DETECTED)
