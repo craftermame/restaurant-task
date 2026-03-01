@@ -1,20 +1,20 @@
 from dataclasses import dataclass
-from typing import Final
 
 # 発話関連
 
 class MessageConfig:
-    START_TASK: Final = "Starts the task."
-    DOOR_OPENING_DETECTED: Final = "Door opening detected."
-    WAIT_DOOR_OPEN: Final = "Waiting for the door opened."
-    ORDER_QUESTION: Final = "What's your order?"
-    SERVE_ITEM: Final = "Serving the item."
-    GIVE_ITEM: Final = "Please receive the item."
+    START_TASK = "Starts the task."
+    DOOR_OPENING_DETECTED = "Door opening detected."
+    WAIT_DOOR_OPEN = "Waiting for the door opened."
+    ORDER_QUESTION = "What's your order?"
+    SERVE_ITEM = "Serving the item."
+    GIVE_ITEM = "Please receive the item."
+    TEST = 'hi'
 
 # パラメータ関連
 
 class ParamsConfig:
-    ITEM_FIND_TRIALS: Final = 3
+    ITEM_FIND_TRIALS = 3
 
 # Export
 
@@ -24,3 +24,5 @@ class Config:
     params = ParamsConfig()
 
 config = Config()
+
+print(config.message.TEST)
